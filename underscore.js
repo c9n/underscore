@@ -23,7 +23,7 @@
 
   var
     nativeIsArray = Array.isArray,
-    nativeKeys = Array.keys,
+    nativeKeys = Object.keys,
     nativeBind = FuncProto.bind,
     nativeCreate = Object.create;
 
