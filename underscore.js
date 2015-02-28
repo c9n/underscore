@@ -18,8 +18,8 @@
   var
     push = ArrayProto.push,
     slice = ArrayProto.slice,
-    toString = ArrayProto.toString,
-    hasOwnProperty = ArrayProto.hasOwnProperty;
+    toString = ObjProto.toString,
+    hasOwnProperty = ObjProto.hasOwnProperty;
 
   var
     nativeIsArray = Array.isArray,
@@ -75,6 +75,12 @@
     var length = collection != null && collection.length;
     return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
   };
+
+  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
+    _.isFunction = function(obj) {
+      return typeof obj == 'function' || false;
+    };
+  }
 
   _.isElement = function(obj) {
     return !!(obj && obj.nodeType === 1);
