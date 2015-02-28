@@ -76,4 +76,20 @@
     return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
   };
 
+  _.isBoolean = function(obj) {
+    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
+  };
+
+  _.isNull = function(obj) {
+    return obj === null;
+  };
+
+  _.isUndefined = function(obj) {
+    return obj === void 0;
+  };
+
+  _.has = function(obj, key) {
+    return obj != null && hasOwnProperty.call(obj, key);
+  };
+
 }.call(this));
